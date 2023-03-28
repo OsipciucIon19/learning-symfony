@@ -43,4 +43,9 @@ class SettingsProfileController extends AbstractController
       'form' => $form->createView(),
     ]);
   }
+
+  public function profileImage()
+  {
+
+  }
 }

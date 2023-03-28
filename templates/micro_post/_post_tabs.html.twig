@@ -9,21 +9,21 @@
       {% endblock %}
     {% endembed %}
 
-    {% embed 'shared/_tab.html.twig' with { route: 'app_profile_follows', classes: 'ml-2' } %}
+    {% embed 'shared/_tab.html.twig' with { route: 'app_micro_post_top_liked', classes: 'ml-2' } %}
       {% block content %}
         Top Liked
       {% endblock %}
       {% block path %}
-{#        {{ path('app_profile_follows') }}#}
+        {{ path('app_micro_post_top_liked') }}
       {% endblock %}
     {% endembed %}
 
-    {% embed 'shared/_tab.html.twig' with { route: 'app_profile_followers', classes: 'ml-2' } %}
+    {% embed 'shared/_tab.html.twig' with { route: 'app_micro_post_follows', classes: 'ml-2' } %}
       {% block content %}
         From People You Follow
       {% endblock %}
       {% block path %}
-{#        {{ path('app_profile_followers') }}#}
+        {{ path('app_micro_post_follows') }}
       {% endblock %}
     {% endembed %}
   {% endblock %}
