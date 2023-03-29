@@ -12,6 +12,7 @@ use App\Security\Voter\MicroPostVoter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -66,7 +67,8 @@ class MicroPostController extends AbstractController
     $microPost = new MicroPost();
     $form = $this->createFormBuilder($microPost)
       ->add('title')
-      ->add('text')
+      ->add('text', TextareaType::class)
+      ->add('extraPrivacy')
       ->getForm();
 
     $form->handleRequest($request);

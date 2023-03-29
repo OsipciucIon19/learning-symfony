@@ -52,11 +52,17 @@ class MicroPostVoter extends Voter
         return $isAuth && (
             $subject->getAuthor()->getId() === $user->getId() ||
             $this->security->isGranted('ROLE_EDITOR')
-      );
+          );
       case self::VIEW:
-        return true;
-    }
+        if (!$subject->isExtraPrivacy()) {
+          return true;
+        }
 
+        return $isAuth &&
+          ($subject->getAuthor()->getId() === $user->getId()
+            || $subject->getAuthor()->getFollows()->contains($user)
+          );
+    }
     return false;
   }
 }
